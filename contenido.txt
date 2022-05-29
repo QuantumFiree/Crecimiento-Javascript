@@ -1,0 +1,20 @@
+Capitulo 1:
+-Variables: let, var, const
+-operadores logicos
+-operadores matematicos
+-condicionales
+
+Capitulo 2:
+-Arrays
+    Estructuras:
+    - array = ["contenido", "que", "quiera"];
+    - array = {contenido: "Contenido", que: "que", quiera: "quiera"};
+-Bucles
+    Estructuras:
+    - while("condicion"){"instrucciones"};
+    - do{"instrucciones"} while("condiciones");
+    - for(contador; condicion, incremento){"instrucciones"};
+    - for("variable" in "objeto iterable"){"instrucciones"}; 
+      (la variable guarda el valor posicional de esa posicion)
+    - for("variable" of "objeto iterable"){"instrucciones"}; 
+      (la variable guarda el contenido que esta en esa posicion)
