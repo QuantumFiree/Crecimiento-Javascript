@@ -18,3 +18,88 @@ Capitulo 2:
       (la variable guarda el valor posicional de esa posicion)
     - for("variable" of "objeto iterable"){"instrucciones"}; 
       (la variable guarda el contenido que esta en esa posicion)
+
+Capitulo 3:
+-Programacion orientada a objetos(POO)
+-Todos los conceptos del paradigma
+-Definir los atributos dentro del constructor con "this."
+-Setters y getters 
+  Ej: set setAtributo(parametro){}
+      get getAtributo(){return}
+
+Capitulo 4:
+Metodos de cadenas:
+- concat("cadena")
+- starsWidth("cadena") retorna valores booleanos
+- endWidt("cadena")
+- includes("cadena") retrona valores booleanos
+- indexOf("cadena") 
+- lastIndexOf("cadena")
+- split() divide la cadena con el separador que querramos
+- substring()
+- toLowerCase()
+- toUpperCase()
+- toString()
+- trim() elimina los espacios en blanco al principio y al final de la cadena
+
+Metodos de arrays:
+- pop() elimina el ultimo elemento del arrays y lo devuelve
+- shift() eliminar el primer elemento del array y lo devuelve 
+- push() agrega un elemento al arrays al final de la lista
+- reverse() invierte el arrays
+- unShift() agrega uno o mas elementos al inicio del array, devuelve la nueva longitud del array
+- sort() ordena los elemento del array
+- splice() cambie el contenido de un array, reemplazando
+- join() une todos los elementos en una cadena
+- slice() devuelve una parte del array dentro de un nuevo array
+- filter()
+- forEach()
+
+Capitulo 5:
+Metodos de consola
+
+Capitulo 6:
+- El DOM
+- Metodos de seleccion de elementos
+  - getElementById()
+  - getElementByTagName()
+  - querySelector()
+  - querySelectorAll()
+
+- Metodos de atributos de elementos
+ - setAttribute()
+ - getAttribute()
+ - removeAtribute(
+
+- Atributos globales
+- Atributos del elemento input
+- propiedad style
+
+ClassList
+- elemento.classList.add() añade una clase al elemento
+- remove() remueve una clase de un elemento
+- item() devuelve la clase del indice especificado
+- contains() verifica la clase
+- replace() reemplaza una clase por orientada
+- toggle() si no tiene la clase especificada, la agrega, si ya la tiene, la elimina(si el segundo parametro de la
+funcion es "true" entonces no elimina la clase)
+ )
+
+ Obtencion y modificacion de elementos
+ elemento.textContent devuelve el texto de cualquier nodo
+ .innerHTML(atributo del elemento) devuelve el contenido html de un elemento 
+ .outerHTML (atributo del elemento) devuelve el codigo html completo de un elemento 
+
+ Metodos para la creacion de elementos
+ - createElements() Crea nuevo elementos
+ - createTextNode()
+ - appendChild()
+ - createDocumentFragment()   
+
+ Obtencion y modificacion de childs
+ - firstChild (atributo del elemento)
+ - lastChild (atributo del elemento) toma en cuenta los espacios entre las etiquetas
+ - firstElementChild (atributo del elemento) no toma en cuenta los esapcios entre etiquetas
+ - lastElementChild (atributo del elemento)
+ - childNodes (atributo del elemento)
+ - children
