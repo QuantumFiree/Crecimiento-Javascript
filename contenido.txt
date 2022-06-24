@@ -103,3 +103,12 @@ funcion es "true" entonces no elimina la clase)
  - lastElementChild (atributo del elemento)
  - childNodes (atributo del elemento)
  - children
+
+ Metodos de childs
+ - replaceChild()
+ - removeChild()
+ - hashChildNode()
+
+ Propiedades de parents
+ - parentElement
+ - parentNode

@@ -13,4 +13,5 @@
 //     return console.log(resolve);
 // });
 
-let container = document.querySelector(".Contenedor");
+let contenedor = document.querySelector(".Contenedor");
+let child1 = contenedor.replaceChild()
