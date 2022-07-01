@@ -13,6 +13,9 @@ class Estado {
         this.n = (this.towers[2].length - 4)
         //____________________________________________________________________________
         for (let tower of this.towers) {
+            if(this.towers[1] == tower){
+                continue
+            }
             for (let disk in tower) {
                 if (disk == 0) {
                     this.n += tower[disk] == 4 ? 1 : -1000
