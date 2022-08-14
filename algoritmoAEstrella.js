@@ -13,9 +13,9 @@ class Estado {
         this.n = (this.towers[2].length - 4)
         //____________________________________________________________________________
         for (let tower of this.towers) {
-            if(this.towers[1] == tower){
-                continue
-            }
+            // if(this.towers[1] == tower){
+            //    continue
+            // }
             for (let disk in tower) {
                 if (disk == 0) {
                     this.n += tower[disk] == 4 ? 1 : -1000
@@ -35,11 +35,11 @@ class Estado {
         return this.g
     }
 
-    getName(){
+    getName() {
         return this.name
     }
 
-    getParent(){
+    getParent() {
         return this.parent
     }
 }
@@ -96,28 +96,22 @@ let filtroAñadirEstado = (newTowers, opened, closed) => {
 let insertarCorrectamente = (newTowers, ea, opened) => {
     //se crea el nuevo estado 
     let level = ea.getLevel()
-    let newState = new Estado(++names, ++level, newTowers, ea)
+    let newState = new Estado(names, ++level, newTowers, ea)
 
     //se calcula el valor de su funcion heuristica
     newState.calcularFh()
-    
+
     //busca el indice donde insertar
     let insert = false
     for (let state in opened) {
         if (newState.fh < opened[state].fh) {
             opened.splice(state, 0, newState)
             insert = true
-            console.log("nombre: ", newState.name)
-            console.log("nivel: ", newState.g)
-            console.log("newTowers: ", newState.towers, "\n\n")
             break
         }
     }
     if (!insert) {
         opened.push(newState)
-        console.log("nombre: ", newState.name)
-        console.log("nivel: ", newState.g)
-        console.log("newTowers: ", newState.towers, "\n\n")
     }
 }
 
@@ -129,9 +123,8 @@ let generarEstados = (ea, opened, closed) => {
             for (let tower2 in towers) {
                 if (tower1 != tower2) {
                     let newTowers = [[...towers[0]], [...towers[1]], [...towers[2]]]
-                    // console.log("towers: ", towers)
-                    // console.log("newTowers: ", newTowers)
                     newTowers[tower2].push(newTowers[tower1].pop());
+                    ++names
                     if (filtroAñadirEstado(newTowers, opened, closed)) {
                         //se guarda en abiertos
                         insertarCorrectamente(newTowers, ea, opened)
@@ -147,6 +140,7 @@ let generarEstados = (ea, opened, closed) => {
 var names = 0;
 let opened = [new Estado()];
 let closed = []
+var camino = [24, 20, 16, 12, 7, 3, 1, 0]
 
 let find = false
 let ea;
@@ -155,6 +149,12 @@ let eo = [[], [], [4, 3, 2, 1]];
 //ciclo para buscar el estado objetivo
 while (opened.length != 0 && !find) {
     ea = opened.pop()
+    // if(camino.includes(ea.name)){
+    //     console.log('Estado actual: ', ea.towers)
+    //     console.log('name state: ', ea.name)
+    //     console.log('-----------------------------------')
+
+    // }
     generarEstados(ea, opened, closed)
     closed.push(ea)
 
@@ -176,19 +176,35 @@ while (opened.length != 0 && !find) {
 
     if (i == towers.length) {
         find = true
-        let road = "" + ea.getName()
+        let road = "" + ea.name
         let parent = ea.getParent()
 
-        while(parent != null){
+        console.log('Nombre: ', ea.name)
+        console.log('valor funcion heuristica: ', ea.n)
+        console.log('nivel: ', ea.g)
+        console.log('fh: ', ea.fh)
+        console.log('Towers: ', ea.towers)
+        while (parent != null) {
+            console.log('\n')
+            console.log('=======================================')
+            console.log('Nombre: ', parent.name)
+            console.log('valor funcion heuristica: ', parent.n)
+            console.log('nivel: ', parent.g)
+            console.log('fh: ', parent.fh)
+            console.log('Towers: ', parent.towers)
             road += " - " + parent.getName()
             parent = parent.getParent()
         }
-        console.log("---------------------------------------------------")|
-        console.log("road: ", road)|
-        
-        
-        console.log("\n\n---------------------------------------------------")|
-        console.log("se encontro el estado objetivo: \n\n", ea)
+        console.log("---------------------------------------------------")
+        console.log('abiertos: ', opened.length)
+        console.log("---------------------------------------------------")
+        console.log('cerrados: ', closed.length)
+        console.log("---------------------------------------------------") |
+            console.log("road: ", road) |
+
+
+            console.log("\n\n---------------------------------------------------") |
+            console.log("se encontro el estado objetivo: \n\n", ea)
     }
 
 }
